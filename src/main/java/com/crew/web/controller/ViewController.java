@@ -14,4 +14,10 @@ public class ViewController {
         log.info("path root");
         return "1";
     }
+    
+    @GetMapping("api/c")
+    public String main2() {
+        log.info("path main2");
+        return "1";
+    }
 }
