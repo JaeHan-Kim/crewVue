@@ -14,5 +14,7 @@ module.exports = {
         }
     },
 
-    outputDir: '../src/main/static'
+    outputDir: '../src/main/resources/static',
+    indexPath: "../static/index.html",
+    //assetsDir: '../static'
 }

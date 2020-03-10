@@ -1,0 +1,6 @@
+spring:
+  mustache:
+    cache: false
+    charset: UTF-8
+    prefix: classpath:/static/
+    suffix: .html
