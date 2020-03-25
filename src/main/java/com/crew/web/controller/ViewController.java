@@ -1,5 +1,6 @@
 package com.crew.web.controller;
 
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -7,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class ViewController {
+public class ViewController implements ErrorController {
 
     @GetMapping("/")
     public String main() {
@@ -19,5 +20,10 @@ public class ViewController {
     public String main2() {
         log.info("path main2");
         return "1";
+    }
+    
+    @Override
+    public String getErrorPath() {
+        return "/";
     }
 }
