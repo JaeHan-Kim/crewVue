@@ -6,6 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 
+ * 클래스명: <code>ViewController</code><br/><br/>
+ *
+ * 설명을 기입하세요
+ *
+ * @since 2020. 5. 6.
+ * @author JaeHan-Kim
+ *
+ */
 @Slf4j
 @Controller
 public class ViewController implements ErrorController {
