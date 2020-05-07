@@ -95,6 +95,7 @@
     </v-app-bar>
 
     <v-content>
+      <button v-on:click="test">Greet</button>
       <router-view/>
     </v-content>
 
@@ -119,6 +120,15 @@ export default {
   }),
   created () {
     this.$vuetify.theme.dark = false
+  },
+  methods: {
+    test: function () {
+      alert('a')
+      this.$axios.get('/api/users')
+        .then((res) => {
+          console.log(res)
+        })
+    }
   }
 }
 </script>
