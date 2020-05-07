@@ -26,14 +26,15 @@ public class ViewController implements ErrorController {
         return "/index";
     }
     
-    @GetMapping("api/c")
-    public String main2() {
-        log.info("path main2");
-        return "1";
+    @GetMapping("/error")
+    public String error(){
+        return "/index";
     }
     
     @Override
     public String getErrorPath() {
-        return "/";
+        log.info("error!!");
+        return "/error";
     }
+
 }
