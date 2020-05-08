@@ -36,7 +36,7 @@ public class UserController {
     private UserService userService;
     
     @GetMapping("/users")
-    public List<UserEntity> retriveAllUser() {
+    public List<User> retriveAllUser() {
         return this.userService.getUserList();
     }
     
