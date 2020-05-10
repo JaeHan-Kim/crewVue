@@ -5,7 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,5 +47,14 @@ public class UserController {
     public void createUser(@RequestBody User user) {
         log.debug("USER INFO");
         log.debug("{}", user);
+    }
+    
+    @GetMapping("/users/{name}")
+    public void alterUser(@PathVariable String name, User user) {
+    	log.info("name {}", name);
+    	
+    	List<User> list = this.userService.getUserByName(name);
+    	
+    	log.info("user list size {}", list.size());
     }
 }

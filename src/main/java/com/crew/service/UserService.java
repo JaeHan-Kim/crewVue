@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import static com.crew.util.ObjectMapperUtils.map;
 import static com.crew.util.ObjectMapperUtils.mapList;
 
-/**
+/**‰
  * 
  * 클래스명: <code>UserService</code><br/><br/>
  *
@@ -54,5 +54,10 @@ public class UserService {
         UserEntity savedUser = this.userRepository.save(map(user, UserEntity.class));
         
         return map(savedUser, User.class);
+    }
+    
+    public List<User> getUserByName(String name) {
+    	
+    	return mapList(this.userRepository.findbyName(name), User.class);
     }
 }

@@ -3,6 +3,7 @@ package com.crew.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.crew.domain.entity.UserEntity;
+import com.crew.repository.coustom.UserRepositoryCustom;
 
 /**
  * 
@@ -14,6 +15,6 @@ import com.crew.domain.entity.UserEntity;
  * @author JaeHan-Kim
  *
  */
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+public interface UserRepository extends JpaRepository<UserEntity, Integer>, UserRepositoryCustom {
 
 }
