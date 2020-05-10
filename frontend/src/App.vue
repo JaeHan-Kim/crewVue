@@ -95,7 +95,7 @@
     </v-app-bar>
 
     <v-content>
-      <button v-on:click="test">Greet</button>
+      <v-btn v-on:click="test">Greet</v-btn>
       <router-view/>
     </v-content>
 
