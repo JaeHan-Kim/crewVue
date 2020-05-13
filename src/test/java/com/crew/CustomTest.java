@@ -39,5 +39,6 @@ public class CustomTest {
 		List<UserEntity> result = this.userRepository.findbyName(name);
 		
 		Assertions.assertEquals(result.size(), 1);
+		Assertions.assertEquals(result.get(0).getName(), name);
 	}
 }

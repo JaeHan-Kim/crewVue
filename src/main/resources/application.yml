@@ -19,4 +19,5 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+    oeg.hibernate.type: trace
 server:  port: 8087

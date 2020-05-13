@@ -1,5 +1,7 @@
 package com.crew.domain.dto;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +16,13 @@ import lombok.Setter;
  *
  */
 @Setter @Getter
-public class User {
+public class User implements Serializable {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -6850673270826231829L;
+
     private Long id;
     
     private String name;
