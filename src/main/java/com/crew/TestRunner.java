@@ -53,6 +53,7 @@ public class TestRunner implements ApplicationRunner {
         rootMenu.setMnuLv(1);
         rootMenu.setPreMnuNo(0);
         rootMenu.setUseYn(true);
+        rootMenu.setDispNo(1);
         rootMenu.setRegDate(LocalDateTime.now());
         rootMenu.setRegNo(1);
         rootMenu.setModDate(LocalDateTime.now());
@@ -64,6 +65,7 @@ public class TestRunner implements ApplicationRunner {
         subMenu.setMnuLv(2);
         subMenu.setPreMnuNo(rootM.getMnuNo());
         subMenu.setUseYn(true);
+        subMenu.setDispNo(10);
         subMenu.setRegDate(LocalDateTime.now());
         subMenu.setRegNo(1);
         subMenu.setModDate(LocalDateTime.now());
@@ -75,6 +77,7 @@ public class TestRunner implements ApplicationRunner {
         subMenu2.setMnuLv(2);
         subMenu2.setPreMnuNo(rootM.getMnuNo());
         subMenu2.setUseYn(true);
+        subMenu2.setDispNo(20);
         subMenu2.setRegDate(LocalDateTime.now());
         subMenu2.setRegNo(1);
         subMenu2.setModDate(LocalDateTime.now());
@@ -86,6 +89,7 @@ public class TestRunner implements ApplicationRunner {
         subMenubySub.setMnuLv(3);
         subMenubySub.setPreMnuNo(subM.getMnuNo());
         subMenubySub.setUseYn(true);
+        subMenubySub.setDispNo(10);
         subMenubySub.setRegDate(LocalDateTime.now());
         subMenubySub.setRegNo(1);
         subMenubySub.setModDate(LocalDateTime.now());
@@ -93,6 +97,18 @@ public class TestRunner implements ApplicationRunner {
         
         this.menuService.createMenu(subMenubySub);
         
+        Menu subMenubySub2 = new Menu();
+        subMenubySub2.setMnuName("root-1 sub-1 by sub-1");
+        subMenubySub2.setMnuLv(3);
+        subMenubySub2.setPreMnuNo(subM.getMnuNo());
+        subMenubySub2.setUseYn(true);
+        subMenubySub2.setDispNo(10);
+        subMenubySub2.setRegDate(LocalDateTime.now());
+        subMenubySub2.setRegNo(1);
+        subMenubySub2.setModDate(LocalDateTime.now());
+        subMenubySub2.setModNo(1);
+        
+        this.menuService.createMenu(subMenubySub2);
         
         //List<MenuEntity> rootMenuList = this.menuService.getMenuListParentIsNull();
         //log.info("list size {}", rootMenuList.size());

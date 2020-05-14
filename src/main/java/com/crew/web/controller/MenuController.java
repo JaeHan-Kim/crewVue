@@ -11,7 +11,9 @@ import com.crew.domain.entity.MenuEntity;
 import com.crew.service.MenuService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -21,7 +23,16 @@ public class MenuController {
     
     @GetMapping("/menus")
     public List<Menu> getMenuList() {
-        return this.menuservice.getMenuListParentIsNull();
         
+        List<Menu> list = this.menuservice.getMenuListParentIsNull();
+        
+        
+        for (Menu m : list) {
+            log.info("!! {}", m.getMnuName());
+        }
+        
+        
+        //return this.menuservice.getDispMenuList(list, 1);
+        return list;
     }
 }

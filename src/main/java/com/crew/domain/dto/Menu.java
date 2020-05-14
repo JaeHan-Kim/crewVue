@@ -23,8 +23,11 @@ public class Menu implements Serializable {
     private int mnuLv;
     private String urlAdr;
     private boolean useYn;
+    private int dispNo;
     private LocalDateTime regDate;
     private int regNo;
     private LocalDateTime modDate;
     private int modNo;
+    
+    private List<Menu> subMenu;
 }
