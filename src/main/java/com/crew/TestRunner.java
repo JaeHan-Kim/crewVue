@@ -1,5 +1,6 @@
 package com.crew;
 
+import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Component;
 import com.crew.domain.dto.Menu;
 import com.crew.domain.dto.User;
 import com.crew.domain.entity.MenuEntity;
+import com.crew.domain.entity.QMenuEntity;
+import com.crew.domain.entity.QUserEntity;
 import com.crew.service.MenuService;
 import com.crew.service.UserService;
 

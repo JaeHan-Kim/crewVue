@@ -30,19 +30,11 @@ public class MenuRepositoryImpl extends BaseRepository implements MenuRepository
 
     @Override
     public List<Menu> findbyctgListAtDsl() {
-        
-        List<MenuEntity> list = this.queryFactory
-                .selectFrom(menuEntity)
-                .orderBy(menuEntity.preMnuNo.asc(), menuEntity.dispNo.asc())
-                .fetch();
-        
-        for (MenuEntity m : list) {
-            log.info("11 {}", m.getRegDate());
-        }
         Expression<?>[] expr = super.getAllExpression(menuEntity);
         return this.queryFactory
                 .select(Projections.bean(Menu.class, expr))
                 .from(menuEntity)
+                .where(this.queryFactory.selectFrom(menuEntity).where(menuEntity.mnuNo.eq(1)).exists())
                 .orderBy(menuEntity.preMnuNo.asc(), menuEntity.dispNo.asc())
                 .fetch();
     }
