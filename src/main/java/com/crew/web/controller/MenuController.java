@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crew.domain.dto.Menu;
-import com.crew.domain.entity.MenuEntity;
 import com.crew.service.MenuService;
 
 import lombok.RequiredArgsConstructor;
