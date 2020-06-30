@@ -38,7 +38,7 @@ java {
 repositories {
     jcenter()
 }
-
+// 이것은 테스트
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web") {
         exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
