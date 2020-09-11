@@ -2,7 +2,10 @@ package com.crew.web.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.support.JdbcUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +39,22 @@ public class UserController {
     
     @GetMapping("/users")
     public List<User> retriveAllUser() {
+    	
+        
+        String field = "user_id";
+        String fieldCd = JdbcUtils.convertUnderscoreNameToPropertyName(field);
+        String fieldNm = fieldCd.substring(0, fieldCd.length() - 2) + "Nm";
+
+        log.info("{}", field);
+        log.info("{}", fieldCd);
+        log.info("{}", fieldNm);
+        
+        //BeanWrapper obj = PropertyAccessorFactory.forBeanPropertyAccess();
+        //Object val = obj.getPropertyValue(fieldCd);
+        //log.info("{}", val);
+        //String name = this.getCodeNm(field, String.valueOf(val));
+        //obj.setPropertyValue(fieldNm, name);
+    	
         return this.userService.getUserList();
     }
     
