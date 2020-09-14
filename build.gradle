@@ -25,7 +25,7 @@ plugins {
 	id("org.springframework.boot") version "2.2.5.RELEASE"
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
-	
+	id 'com.google.cloud.tools.jib' version '2.5.0'
 	
 }
 
@@ -42,6 +42,28 @@ java {
 
 repositories {
     jcenter()
+}
+
+version = "0.0.4"
+
+jib {
+    from {
+        image = "docker://amazoncorretto:8u262-alpine-jre"
+    }
+    to {
+        image = "/crewvue"
+        tags = ["${project.version}".toString()]
+        //credHelper = "pass"
+        auth {
+            username = ''
+            password = ''
+        }
+    }
+    container {
+        mainClass = "com.crew.CrewVueApplication"
+        volumes = ["/tmp"]
+        creationTime = "USE_CURRENT_TIMESTAMP"
+    }
 }
 
 dependencies {
