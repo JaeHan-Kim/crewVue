@@ -1,46 +1,30 @@
-Configutation:
-  name: Default
-  status: warn
+Configuration:
+ status: error
 
-  Properties:
-    Property:
-      name: log-path
-      value: "logs"
+ Appenders:
+   Console:
+     - name: JSON_LAYOUT_APPENDER
+       target: SYSTEM_OUT
+       JSONLayout:
+         compact: true
+         complete: false
+         objectMessageAsJsonObject: true
 
-  Appenders:
-    Console:
-      name: Console_Appender
-      target: SYSTEM_OUT
-      PatternLayout:
-        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
-    File:
-      name: File_Appender
-      fileName: ${log-path}/logfile.log
-      PatternLayout:
-        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
-    RollingFile:
-      - name: RollingFile_Appender
-        fileName: ${log-path}/rollingfile.log
-        filePattern: "logs/archive/rollingfile.log.%d{yyyy-MM-dd-hh-mm}.gz"
-        PatternLayout:
-          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
-        Policies:
-          SizeBasedTriggeringPolicy:
-            size: 1 KB
-        DefaultRollOverStrategy:
-          max: 30
-  Loggers:
-    Root:
-      level: info
-      AppenderRef:
-        - ref: Console_Appender
-        - ref: File_Appender
-        - ref: RollingFile_Appender
-    Logger:
-      - name: edu.project
-        additivity: false
-        level: debug
-        AppenderRef:
-          - ref: Console_Appender
-          - ref: File_Appender
-          - ref: RollingFile_Appender
+     - name: CONSOLE_ROOT
+       target: SYSTEM_OUT
+       PatternLayout:
+         alwaysWriteExceptions: true
+         pattern: "[%threadName] %-5level %logger{36} - %message{nolookups} %ex{separator(|)} %n"
+
+ Loggers:
+   logger:
+     - name: LOGGER_WITH_JSON_LAYOUT
+       level: info
+       additivity: false
+       AppenderRef:
+         ref: JSON_LAYOUT_APPENDER
+
+   Root:
+     level: info
+     AppenderRef:
+       ref: CONSOLE_ROOT
