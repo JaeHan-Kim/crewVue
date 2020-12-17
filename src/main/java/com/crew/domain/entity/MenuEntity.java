@@ -7,12 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity(name = "MENU")
-@Setter @Getter
+@Getter
+@NoArgsConstructor
 public class MenuEntity {
-    
+
     @Id
     @GeneratedValue
     private Integer mnuNo;
@@ -26,6 +28,5 @@ public class MenuEntity {
     private int regNo;
     private LocalDateTime modDate;
     private int modNo;
-    
-    
+
 }
